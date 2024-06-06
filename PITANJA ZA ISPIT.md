@@ -1,63 +1,63 @@
 https://predavacialgebra-my.sharepoint.com/personal/algebra_nastava_predavaci_algebra_hr/_layouts/15/stream.aspx?id=%2Fpersonal%2Falgebra%5Fnastava%5Fpredavaci%5Falgebra%5Fhr%2FDocuments%2FRecordings%2FPripreme%20za%20zavr%C5%A1ni%20ispit%20BEDEV%2026%2E03%2E2024%2E%2D20240326%5F173510%2DSnimka%20sastanka%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eb4f6ea55%2D0f24%2D40f8%2Db614%2D237a1d331270
 
-Linux komande:
-	pwd - 	ispisi trenutni direktorij (Current Working Directory)
-	mkdir - kreiraj direktorij
-	cat - 	pokazi sadrzaj datoteke
-	ls - 	listaj sve (fileovi i foldere) u trenutnom  direktoriju
-	cd - 	change directory
-	cp - 	copy
-	mv - 	move ili rename (ako navedemo isti direktorij i durgi naziv datoteke)
-	hostname -I - za prikaz ip adrese 
-Editori - Vi/Vim, Nano, Emacs
-	Vi 	- ima 3 mode-a: command, insert, replace mode
+__Linux komande:__
+	- pwd - 	ispisi trenutni direktorij (Current Working Directory)
+	- mkdir - kreiraj direktorij
+	- cat - 	pokazi sadrzaj datoteke
+	- ls - 	listaj sve (fileovi i foldere) u trenutnom  direktoriju
+	- cd - 	change directory
+	- cp - 	copy
+	- mv - 	move ili rename (ako navedemo isti direktorij i durgi naziv datoteke)
+	- hostname -I - za prikaz ip adrese 
+__Editori__ - Vi/Vim, Nano, Emacs
+	- Vi 	- ima 3 mode-a: command, insert, replace mode
 		- :wq! za izaci i spremiti promjene :w(write)q(quit)!(execute)
 
 
-Sto je Apache? Apache HTTP poslužitelj (Apache HTTP server) je besplatni web poslužitelj otvorenog koda.
-Kako se konfigurira Apache? Apache se konfigurira postavljanjem direktiv u obicnu tekstualnu datoteku. Glavna konfiguracijska datoteka obično se naziva httpd.conf
+__Sto je Apache?__ Apache HTTP poslužitelj (Apache HTTP server) je besplatni web poslužitelj otvorenog koda.
 
-Sto je httpd.conf? Glavna konfiguracijska datoteka za konfiguriranje Apache-a
+__Kako se konfigurira Apache?__ Apache se konfigurira postavljanjem direktiv u obicnu tekstualnu datoteku. Glavna konfiguracijska datoteka obično se naziva httpd.conf
 
-Koja je osnovna svrha Apache2 na Ubuntu 22 serveru? Web poslužitelj
+__Sto je httpd.conf?__ Glavna konfiguracijska datoteka za konfiguriranje Apache-a
 
-Koja naredba se koristi za instalaciju Apache2 na Ubuntu 22? ``sudo apt install apache2``
+__Koja je osnovna svrha Apache2 na Ubuntu 22 serveru?__ Web poslužitelj - web server
 
-Koji je zadani korijenski direktorij za web Apache2 na Ubuntu 22? /var/www/html
+__Koja naredba se koristi za instalaciju Apache2 na Ubuntu 22?__ `sudo apt install apache2`
 
-Koja se konfiguracijska datoteka obično koristi za mijenjanje postavki Apachea na Ubuntu 22? /etc/apache2/httpd.conf
+__Koji je zadani korijenski direktorij za web Apache2 na Ubuntu 22?__ /var/www/html
 
-Kako možete ponovno pokrenuti uslugu Apache2 nakon što napravite promjene u konfiguraciji?`sudo systemctl restart apache2`
+__Koja se konfiguracijska datoteka obično koristi za mijenjanje postavki Apachea na Ubuntu 22?__ /etc/apache2/httpd.conf
 
-Koja naredba se koristi za omogućavanje stranice u Apache2? `sudo a2ensite`
+__Kako možete ponovno pokrenuti uslugu Apache2 nakon što napravite promjene u konfiguraciji?__ `sudo systemctl restart apache2`
 
-Koja je svrha naredbe `a2enmod` u Apache2? Omogućavanje Apache modula
+__Koja naredba se koristi za omogućavanje stranice u Apache2?__ `sudo a2ensite`
 
-Na kojem portu Apache2 obično sluša dolazne HTTP zahtjeve? 80
+__Koja je svrha naredbe `a2enmod` u Apache2?__ Omogućavanje Apache modula
 
-Koja naredba se koristi za provjeru sintakse Apache konfiguracijskih datoteka bez ponovnog pokretanja usluge? `sudo apachectl configtest`
+__Na kojem portu Apache2 obično sluša dolazne HTTP zahtjeve?__ 80
 
-Kako možete onemogućiti zadani Apache2 site na Ubuntu 22? `sudo a2dissite default`
+__Koja naredba se koristi za provjeru sintakse Apache konfiguracijskih datoteka bez ponovnog pokretanja usluge?__ `sudo apachectl configtest`
+
+__Kako možete onemogućiti zadani Apache2 site na Ubuntu 22?__ `sudo a2dissite default`
+
+*****
+
+# HTML 
+
+__Sto je HTML?__ HTML je kratica za HyperText Markup Language, što znači prezentacijski jezik za izradu web stranica.
+__<!DOCTYPE html>__ - Svi HTML dokumenti __moraju poceti__ s <!DOCTYPE> deklaracijom. U HTML5 deklaracija je <!DOCTYPE html>
+__Par HTML tagova:__ 
+	- hiperveza (hiperlink): 	`<a href="/link-do-sljedece-stranice"> Tekst hiperveze </a>`
+	- tablica: 			`<table> </table>`
+        - slike: 			`<img alt="opis slike" src="izvor slike">`
+	- odlomak: 			`<p> Tekst odlomka </p>`
+
+__<meta charset="UTF-8">__ za koristenje specijalnih karaktera čćšđž...
 
 
 *******************************************************
-HTML 
-*******************************************************
+# PHP
 
-Sto je HTML? HTML je kratica za HyperText Markup Language, što znači prezentacijski jezik za izradu web stranica.
-<!DOCTYPE html> - Svi HTML dokumenti **moraju poceti** s <!DOCTYPE> deklaracijom. U HTML5 deklaracija je sljedeca: <!DOCTYPE html>
-Par HTML tagova: 
-	- hiperveza (hiperlink): 	<a href="/link-do-sljedece-stranice"> Tekst hiperveze </a>
-	- tablica: 			<table> </table>
-        - slike: 			<img alt="opis slike" src="izvor slike">
-	- odlomak: 			<p> Tekst odlomka </p>
-
-<meta charset="UTF-8"> za koristenje specijalnih karaktera čćšđž...
-
-
-*******************************************************
-			PHP
-*******************************************************
 COMPOSER - upravitelj paketa za php
 var_dump($var) ispisuje tip varijable i vrijesnost
 
