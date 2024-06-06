@@ -1,64 +1,59 @@
 https://predavacialgebra-my.sharepoint.com/personal/algebra_nastava_predavaci_algebra_hr/_layouts/15/stream.aspx?id=%2Fpersonal%2Falgebra%5Fnastava%5Fpredavaci%5Falgebra%5Fhr%2FDocuments%2FRecordings%2FPripreme%20za%20zavr%C5%A1ni%20ispit%20BEDEV%2026%2E03%2E2024%2E%2D20240326%5F173510%2DSnimka%20sastanka%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eb4f6ea55%2D0f24%2D40f8%2Db614%2D237a1d331270
 
-linux komande
-pwd - ispisi trenutni dir
-mkdir - kreiraj direktorij
-cat - pokazi sadrzaj datoteke
-ls - listaj sve u trenutnom direktoriju
-cd - change directory
-cp - copy
-mv - rename ili move
-Editori - vi i nano
-vi - command, insert, replace mode
-	:wq! za izaci i spremiti promjene :w(write)q(quit)!(execute)
+Linux komande:
+	pwd - 	ispisi trenutni direktorij (Current Working Directory)
+	mkdir - kreiraj direktorij
+	cat - 	pokazi sadrzaj datoteke
+	ls - 	listaj sve (fileovi i foldere) u trenutnom  direktoriju
+	cd - 	change directory
+	cp - 	copy
+	mv - 	move ili rename (ako navedemo isti direktorij i durgi naziv datoteke)
+	hostname -I - za prikaz ip adrese 
+Editori - Vi/Vim, Nano, Emacs
+	Vi 	- ima 3 mode-a: command, insert, replace mode
+		- :wq! za izaci i spremiti promjene :w(write)q(quit)!(execute)
 
-hostname -I - za prikaz ip adrese
-sto je apache? http server
-httpd.conf za konfiguraciju apachea
 
-1. **Pitanje 1: Koja je osnovna svrha Apache2 na Ubuntu 22 serveru?**
-  ***** B. Web poslužitelj
+Sto je Apache? Apache HTTP poslužitelj (Apache HTTP server) je besplatni web poslužitelj otvorenog koda.
+Kako se konfigurira Apache? Apache se konfigurira postavljanjem direktiv u obicnu tekstualnu datoteku. Glavna konfiguracijska datoteka obično se naziva httpd.conf
 
-2. **Pitanje 2: Koja naredba se koristi za instalaciju Apache2 na Ubuntu 22?**
-  ***** B. `sudo apt install apache2``
+Sto je httpd.conf? Glavna konfiguracijska datoteka za konfiguriranje Apache-a
 
-3. **Pitanje 3: Koji je zadani korijenski direktorij za web Apache2 na Ubuntu 22?**
-   ***** A. /var/www/html
+Koja je osnovna svrha Apache2 na Ubuntu 22 serveru? Web poslužitelj
 
-4. **Pitanje 4: Koja se konfiguracijska datoteka obično koristi za mijenjanje postavki Apachea na Ubuntu 22?**
-   ***** A. /etc/apache2/httpd.conf
+Koja naredba se koristi za instalaciju Apache2 na Ubuntu 22? ``sudo apt install apache2``
 
-5. **Pitanje 5: Kako možete ponovno pokrenuti uslugu Apache2 nakon što napravite promjene u konfiguraciji?**
-   ***** D. `sudo systemctl restart apache2`
+Koji je zadani korijenski direktorij za web Apache2 na Ubuntu 22? /var/www/html
 
-6. **Pitanje 6: Koja naredba se koristi za omogućavanje stranice u Apache2?**
-   ***** A. `sudo a2ensite`
+Koja se konfiguracijska datoteka obično koristi za mijenjanje postavki Apachea na Ubuntu 22? /etc/apache2/httpd.conf
 
-7. **Pitanje 7: Koja je svrha naredbe `a2enmod` u Apache2?**
-   ***** A. Omogućavanje Apache modula
+Kako možete ponovno pokrenuti uslugu Apache2 nakon što napravite promjene u konfiguraciji?`sudo systemctl restart apache2`
 
-8. **Pitanje 8: Na kojem portu Apache2 obično sluša dolazne HTTP zahtjeve?**
-   ***** A. 80
+Koja naredba se koristi za omogućavanje stranice u Apache2? `sudo a2ensite`
 
-9. **Pitanje 9: Koja naredba se koristi za provjeru sintakse Apache konfiguracijskih datoteka bez ponovnog pokretanja usluge?**
-   ***** B. `sudo apachectl configtest`
+Koja je svrha naredbe `a2enmod` u Apache2? Omogućavanje Apache modula
 
-10. **Pitanje 10: Kako možete onemogućiti zadani Apache2 site na Ubuntu 22?**
-    ***** A. `sudo a2dissite default`
+Na kojem portu Apache2 obično sluša dolazne HTTP zahtjeve? 80
+
+Koja naredba se koristi za provjeru sintakse Apache konfiguracijskih datoteka bez ponovnog pokretanja usluge? `sudo apachectl configtest`
+
+Kako možete onemogućiti zadani Apache2 site na Ubuntu 22? `sudo a2dissite default`
 
 
 *******************************************************
 HTML 
 *******************************************************
 
-- sto je HTML
--<!DOCTYPE html> za html5
--hiperveza  <a>
--tablica <table>
--alt za slike alt=""
--odlomak <p>
-<!DOCTYPE html> prvi tag u htmlu5
-<meta charset="UTF-8"> za koristenje specijalnih karaktera čćšđž
+Sto je HTML? HTML je kratica za HyperText Markup Language, što znači prezentacijski jezik za izradu web stranica.
+<!DOCTYPE html> - Svi HTML dokumenti **moraju poceti** s <!DOCTYPE> deklaracijom. U HTML5 deklaracija je sljedeca: <!DOCTYPE html>
+Par HTML tagova: 
+	- hiperveza (hiperlink): 	<a href="/link-do-sljedece-stranice"> Tekst hiperveze </a>
+	- tablica: 			<table> </table>
+        - slike: 			<img alt="opis slike" src="izvor slike">
+	- odlomak: 			<p> Tekst odlomka </p>
+
+<meta charset="UTF-8"> za koristenje specijalnih karaktera čćšđž...
+
 
 *******************************************************
 			PHP
