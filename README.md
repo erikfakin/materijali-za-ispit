@@ -78,7 +78,7 @@ HTML je kratica za HyperText Markup Language, što znači prezentacijski jezik z
 ___
 __<!DOCTYPE html>__ 
 
-Svi HTML dokumenti __moraju poceti__ s <!DOCTYPE> deklaracijom. U HTML5 deklaracija je <!DOCTYPE html>
+Svi HTML dokumenti __moraju poceti__ s <!DOCTYPE> deklaracijom. U HTML5 deklaracija je `<!DOCTYPE html>`
 ___
 __Par HTML tagova:__ 
 
