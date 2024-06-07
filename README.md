@@ -1,4 +1,17 @@
+# Sadržaj
+* [Linux](#linux)
+* [HTML](#html)
+* [PHP](#php)
+
+
+
+Stream "Pripreme za završni ispit":
+
 https://predavacialgebra-my.sharepoint.com/personal/algebra_nastava_predavaci_algebra_hr/_layouts/15/stream.aspx?id=%2Fpersonal%2Falgebra%5Fnastava%5Fpredavaci%5Falgebra%5Fhr%2FDocuments%2FRecordings%2FPripreme%20za%20zavr%C5%A1ni%20ispit%20BEDEV%2026%2E03%2E2024%2E%2D20240326%5F173510%2DSnimka%20sastanka%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eb4f6ea55%2D0f24%2D40f8%2Db614%2D237a1d331270
+
+
+****************
+# Linux
 
 __Linux komande:__
 - pwd -> ispisi trenutni direktorij (Current Working Directory)
@@ -99,11 +112,35 @@ za koristenje specijalnih karaktera čćšđž...
 
 __COMPOSER__
 
-Upravitelj paketa za PHP
+Composer je alat za upravljanje ovisnim paketima u aplikacijama napisanim u PHP programskom jeziku. Pomoću alata Composer moguće je instalirati i ažurirati sve pakete koji su navedeni kao potrebni u aplikaciji koju programer razvija.
 ___
 __var_dump($var)__ 
 
-Funckija koja ispise strukturirane informacije jednje ili vise varija, ukljucujuci tip varijable i vrijednost
+Funckija koja ispise strukturirane informacije jednje ili vise varijabla, ukljucujuci tip i vrijednost.
+```
+$a = array(1, 2, array("a", "b", "c"));
+var_dump($a);
+
+// Ispisati će:
+
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  array(3) {
+    [0]=>
+    string(1) "a"
+    [1]=>
+    string(1) "b"
+    [2]=>
+    string(1) "c"
+  }
+}
+
+```
+
 ___
 __switch bez break u case-u:__
 
@@ -238,7 +275,7 @@ Npr:
 | `$a and $b`			| `true` ako i $a i $b su `true`. |
 | `$a && $b`			| `true` ako i $a i $b su `true`. |
 | `$a or $b`			| `true` ako bilo koja $a ili $b je `true`. |
-| `$a || $b`			| `true` ako bilo koja $a ili $b je `true`. |
+| `$a \|\| $b`			| `true` ako bilo koja $a ili $b je `true`. |
 ___	
 __Kako se deklarira funkcija?__
 ```
