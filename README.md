@@ -103,37 +103,107 @@ Upravitelj paketa za PHP
 ___
 __var_dump($var)__ 
 
-Funckija koja ispise strukturirane informacije jednje ili vise varija, ukljucujuci
+Funckija koja ispise strukturirane informacije jednje ili vise varija, ukljucujuci tip varijable i vrijednost
+___
+__switch bez break u case-u:__
 
+ako nema break onda se pokrene sljedeci block od case npr:
+```
+switch($broj){
+	case 0:
+	case 1:
+	case 2: echo "<=2" break;
+}
+```
+ispisat ce se "<=2" ako je $broj jednak 0, 1 ili 2
+___
+__Što je PHP?___
 
-switch: ako nema break onda se pokrene sljedeci block od case npr:
-switch($nesto){
-case 0:
-case 1:
-case 2: echo "<=2" break;}
+PHP (rekurzivni akronim i backronim za „PHP: Hypertext Preprocessor“, prije „Personal Home Page Tools“) je jedan programski jezik koji se orijentira po C i Perl sintaksi, namijenjen prvenstveno programiranju dinamičnih web stranica. PHP je kao slobodni softver distribuiran pod PHP licencnim uvjetima. PHP se ističe širokom podrškom raznih baza podataka i internet protokola kao i raspoloživosti brojnih programerskih knjižnica.
+___
+__Kako se označava početak PHP skripte?__
 
+`<?php` označava početak PHP skripte
+___
+__Kako ispisujemo tekst?__
 
-PHP
-- sto je PHP - 
-- sintaksa za pokretanje php-a? <?php
-. echo "nesto"; - za ispis teksta
-- sto nije vrsta podataka - decimal
-- nacini komentiranja //, /*, #
-- closure - anonimna funckija function () {}
-- spl_autoload_register - Register given function as __autoload() implementation | ucita sve fileove preko neke funkcije npr. 
-   - mozemo strpat sve u jedan foldser i require sve odjednom
-   function my_autoloader($class) {
-      include 'classes/' . $class . '.class.php';
-   }
+`echo "nesto";`
+___
+__PHP tipovi podataka?__
 
-   spl_autoload_register('my_autoloader');
+- cijeli brojevi (engl. integer)
+- realni brojevi (engl. floating point numbers)
+- tekstni podatci (engl. string)
+- logičke varijable, nizovi i objekti
+___
+__Kako označavamo komentare?__
 
-   // Or, using an anonymous function
-   spl_autoload_register(function ($class) {
-      include 'classes/' . $class . '.class.php';
-   });
+- `//`
+- `/*`
+- `#`
+___
+__Što je closure?__
 
-- post - get razlike
+Closure je anonimna funckija. Koriste se uglavnom kao callable parametar u drugim funkcijama (callback). 
+Closure funkciju možemo također spremiti u varijablu i pozvati ih tako u programu.
+Primjer:
+```
+function(){
+	echo "moja funkcija";
+}
+```
+___
+__Što je spl_autoload_register?__
+
+spl_autoload_register() omogućuje nam da registriramo mnogobrojne funkcije (ili statičke metode iz naše Autoload klase) koje će PHP staviti u stack/queue i pozvati ih sekvencijalno kada deklariramo "new Class".
+
+Primjer:
+- mozemo "strpat" sve potrebne klase u jedanom folderu i require sve odjednom
+  ```
+  function my_autoloader($class) {
+  	include 'classes/' . $class . '.class.php';
+  }
+  
+  spl_autoload_register('my_autoloader');
+  ```
+Ili koristeći anonimnu funkciju:
+```
+spl_autoload_register(function ($class) {
+	include 'classes/' . $class . '.class.php';
+});
+```
+___
+__Što je GET metoda?__
+
+GET metoda se koristi za dobivanje podataka iz jednog resursa.
+
+Niz upita (parovi names/values) šalju se u URL-u zahtjeva GET:
+
+`/test/demo_form.php?name1=value1&name2=value2`
+
+Napomene:
+- GET zahtjevi mogu se spremiti u cache
+- GET zahtjevi ostaju u povijesti preglednika
+- GET zahtjevi mogu biti označeni knjižnom oznakom
+- GET zahtjevi nikada se ne smiju koristiti kada se radi o osjetljivim podacima
+- GET zahtjevi imaju ograničenja duljine
+- GET zahtjevi koriste se samo za traženje podataka (ne i za izmjenu)
+___
+__Što je POST metoda?__
+
+POST metoda se koristi za slanje podataka poslužitelju radi stvaranja/ažuriranja resursa.
+
+Podaci poslani poslužitelju s POST-om pohranjuju se u `request body` POST zahtjeva.
+
+Napomene:
+- POST zahtjevi se nikada ne spremaju u cache
+- POST zahtjevi ne ostaju u povijesti preglednika
+- POST zahtjeve nije moguće označiti knjižnom oznakom
+- POST zahtjevi nemaju ograničenja u duljini podataka
+___
+__Koja je razlika između `"` i `'`?__
+
+__
 - " i ' - u " idu special char \n, i varijable
 - null i prazan string - null nema vrijednosti, "" je prazan string https://www.google.com/url?sa=i&url=https%3A%2F%2Fcseducators.stackexchange.com%2Fquestions%2F6977%2Freal-world-examples-for-the-difference-between-null-and-zero&psig=AOvVaw2yprP-J8KJIXJEw_C5HOFk&ust=1706124191494000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCOCXsIae9IMDFQAAAAAdAAAAABAH
 - & i | - and i or
