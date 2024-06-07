@@ -82,12 +82,12 @@ Svi HTML dokumenti __moraju poceti__ s <!DOCTYPE> deklaracijom. U HTML5 deklarac
 ___
 __Par HTML tagova:__ 
 
-| Tag           	| Primjer       |
-| ------------- 	| ------------- |
+| Tag           		| Primjer       |
+| ------------- 		| ------------- |
 | Hiperveza (Hiperlink)	| `<a href="/link-do-sljedece-stranice"> Tekst hiperveze </a>` |
-| Tablica		| `<table> </table>` |
-| Slike			| `<img alt="opis slike" src="izvor slike">` |
-| Odlomak		| `<p> Tekst odlomka </p>` |		
+| Tablica				| `<table> </table>` |
+| Slike					| `<img alt="opis slike" src="izvor slike">` |
+| Odlomak				| `<p> Tekst odlomka </p>` |		
 ___
 __`<meta charset="UTF-8">`__ 
 
@@ -155,10 +155,10 @@ function(){
 ___
 __Što je spl_autoload_register?__
 
-spl_autoload_register() omogućuje nam da registriramo mnogobrojne funkcije (ili statičke metode iz naše Autoload klase) koje će PHP staviti u stack/queue i pozvati ih sekvencijalno kada deklariramo "new Class".
+spl_autoload_register() omogućuje nam da registriramo jednu uli više funkcija (ili statičke metode iz naše Autoload klase) koje će PHP staviti u stack/queue i pozvati ih sekvencijalno kada deklariramo "new Class".
 
 Primjer:
-- mozemo "strpat" sve potrebne klase u jedanom folderu i require sve odjednom
+- mozemo "strpat" sve potrebne klase u jedanom folderu i includat sve odjednom:
   ```
   function my_autoloader($class) {
   	include 'classes/' . $class . '.class.php';
@@ -166,7 +166,7 @@ Primjer:
   
   spl_autoload_register('my_autoloader');
   ```
-Ili koristeći anonimnu funkciju:
+Ili koristeći anonimnu funkciju (closure):
 ```
 spl_autoload_register(function ($class) {
 	include 'classes/' . $class . '.class.php';
@@ -175,7 +175,7 @@ spl_autoload_register(function ($class) {
 ___
 __Što je GET metoda?__
 
-GET metoda se koristi za dobivanje podataka iz jednog resursa.
+GET metoda se koristi za dobivanje (get) podataka iz jednog resursa.
 
 Niz upita (parovi names/values) šalju se u URL-u zahtjeva GET:
 
@@ -191,9 +191,9 @@ Napomene:
 ___
 __Što je POST metoda?__
 
-POST metoda se koristi za slanje podataka poslužitelju radi stvaranja/ažuriranja resursa.
+POST metoda se koristi za slanje (post) podataka poslužitelju radi stvaranja/ažuriranja resursa.
 
-Podaci poslani poslužitelju s POST-om pohranjuju se u `request body` POST zahtjeva.
+Podaci poslani poslužitelju s POST-om pohranjuju se u `request body`-u POST requesta.
 
 Napomene:
 - POST zahtjevi se nikada ne spremaju u cache
@@ -203,25 +203,164 @@ Napomene:
 ___
 __Koja je razlika između `"` i `'`?__
 
-__
-- " i ' - u " idu special char \n, i varijable
-- null i prazan string - null nema vrijednosti, "" je prazan string https://www.google.com/url?sa=i&url=https%3A%2F%2Fcseducators.stackexchange.com%2Fquestions%2F6977%2Freal-world-examples-for-the-difference-between-null-and-zero&psig=AOvVaw2yprP-J8KJIXJEw_C5HOFk&ust=1706124191494000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCOCXsIae9IMDFQAAAAAdAAAAABAH
-- & i | - and i or
-- deklaracija funckije . function naziv_funkcije(parametri) { // tijelo funkcije }
-- sza vracanje funcjike - return
-- promjenjiv broju argumeata - function imeFunckije(...$vars){}
-- globalna varijabla - global $varijabla; ili $GLOBALS['variable_name'];
-- kako brisemo cookie - stavimo expiration u proslost
-- pointer/referenca &varijabla
-- niz indexirani, asocijativni - indexirani koriste brojeve kao kljuc, asocijativni stringove
-- kako se ucitana datoteka premjesta - move_uploaded_file
-- stvaranje sessiona - session_start() 
+Stringovi definirani pomoću dvostrukih navodnika " omogućuju interpretaciju posebnih znakova i varijabli unutar stringa. 
+Ovo znači da će PHP parsirati string i zamijeniti varijable njihovim vrijednostima, kao i obraditi escape sekvence posebnih znakova.+
+
+Npr:
+```
+$name = "Marko";
+$greeting = "Pozdrav, $name!"; // Rezultat: Pozdrav, Marko!
+$escape = "Ovo je nova linija.\nOvo je nova rečenica."; // \n se interpretira kao nova linija
+```
+
+Stringovi definirani pomoću jednostrukih navodnika ne omogućuju interpretaciju varijabli ili posebnih znakova (osim escape sekvenci za jednostruki navodnik i backslash). 
+Ovo znači da će se string prikazati točno onako kako je napisan.
+
+Npr:
+```
+$name = 'Marko';
+$greeting = 'Pozdrav, $name!'; // Rezultat: Pozdrav, $name!
+$escape = 'Ovo je nova linija.\nOvo je nova rečenica.'; // \n se interpretira doslovno
+```
+___
+__Koja je razlika između string koji je null ili prazan?__
+
+Null znači da string nema vrijednosti, dok prazan string je string koji kao vrijednost nema nista, tj ima "".
+___
+__Što su `&&` i `||`?__ 
+
+`&&` AND i `||` OR su logičke operacije koje u PHP-u uvijek vračaju boolean true ili false.
+
+Npr:
+
+| Primjer           	| Rezultat       |
+| ------------- 		| ------------- |
+| `$a and $b`			| `true` ako i $a i $b su `true`. |
+| `$a && $b`			| `true` ako i $a i $b su `true`. |
+| `$a or $b`			| `true` ako bilo koja $a ili $b je `true`. |
+| `$a || $b`			| `true` ako bilo koja $a ili $b je `true`. |
+___	
+__Kako se deklarira funkcija?__
+```
+function naziv_funkcije(parametri) { 
+	// tijelo funkcije 
+}
+```
+___
+__Kako vraćamo vrijednost u funkciji?__
+
+Za vracanje vrijednosti iz funkcije koristimo `return`.
+___
+__Kako u funkiciji definiramo da prima varijabilni broj argumentata? Što to znači?__
+PHP ima podršku za argumenata varijabilne duljine u korisnički definiranim funkcijama korištenjem `...` tokena.
+​`...`  označava da funkcija prihvaća promjenjivi broj argumenata koji će biti proslijeđeni u zadanu varijablu kao niz.
+Npr:
+```
+function sum(...$numbers) {
+    $acc = 0;
+    foreach ($numbers as $n) {
+        $acc += $n;
+    }
+    return $acc;
+}
+echo sum(1, 2, 3, 4); // vratit će 10
+```
+___
+__Što su globalne varijable i kako ih definiramo i koristimo?__
+
+Globalne varijable su varijable koje su dostupne u svim dijelovima skripte, uključujući funkcije, metode i objekte. 
+Globalne varijable su definirane izvan funkcija i klasa, u globalnom opsegu.
+Za koristiti globalne varijable koristimo keyword `global` ili ih pristupamo koristeći superglobalnu varijablu `$GLOBALS`.
+Npr:
+```
+$globalVar = "Ovo je globalna varijabla";
+
+function myFunction() {
+    global $globalVar;
+    echo $globalVar; // Ispisuje: Ovo je globalna varijabla
+	// ili  echo $GLOBALS['globalVar]
+}
+```
+PHP također ima niz predefiniranih superglobalnih varijabli koje su uvijek dostupne, bez potrebe za korištenjem ključne riječi global. Neke od najčešće korištenih superglobalnih varijabli su:
+
+- $_GET: podaci poslani putem URL parametara
+- $_POST: podaci poslani putem HTTP POST metode
+- $_REQUEST: podaci poslani putem GET, POST ili COOKIE
+- $_SESSION: podaci sesije
+- $_COOKIE: podaci kolačića
+- $_SERVER: informacije o serveru i izvršenju skripte
+- $_FILES: podaci o uploadanim datotekama
+- $_ENV: informacije o varijablama okoline
+___
+__Kako brišemo cookies u PHP-u?__
+
+Cookie brišemo postavljanjem cookie-a koji želimo brisati s istim imenom , ali s isteklim vremenom trajanja. To se radi pomoću funkcije setcookie() s vremenom trajanja u prošlosti.
+Npr:
+```
+// Brisanje kolačića s imenom "user"
+setcookie("user", "", time() - 3600, "/"); // Postavite vrijeme isteka na prošlost
+```
+___
+__Što je pointer ili referenca na varijablu?__
+
+Referenca ili pointer na varijablu stvara se pomoću operatora &. 
+Kada se referenca stvori, obje varijable koje dijele referencu ukazuju na istu memorijsku lokaciju.
+Možete proslijediti varijablu funkciji po referenci tako da funkcija može izravno mijenjati varijablu.
+___
+__Koja je razlika između indeksirane nizove i asocijativne nizove?__
+
+Indeksirani nizovi koriste numeričke indekse, koji počinju od nule.
+Asocijativni nizovi koriste ključeve koji mogu biti stringovi ili cijeli brojevi.
+```
+// Indeksirani niz
+$indeksiraniNiz = ["Jabuka", "Banana", "Trešnja"];
+ili
+$indeksiraniNiz = array("Jabuka", "Banana", "Trešnja");
+
+// Asocijativni niz
+$asocijativniNiz = ["ime" => "Marko", "godine" => 25, "grad" => "Zagreb"];
+ili
+$asocijativniNiz = array("ime" => "Marko", "godine" => 25, "grad" => "Zagreb");
+
+```
+___
+__Kako čitamo cijli sadržaj datoteke kao string?__
+
+```
+$filename = "example.txt";
+
+// Čitanje cijelog sadržaja datoteke
+$content = file_get_contents($filename);
+```
+___
+__Kako premiještamo učitanu datoteku?__
+
+```
+move_uploaded_file(string $from, string $to);
+```
+Ova funkcija provjerava je li datoteka koju označava `$from` valjana datoteka za učitavanje (što znači da je učitana putem PHP-ovog HTTP POST mehanizma učitavanja). Ako je datoteka važeća, bit će premještena u naziv datoteke iz varijable `$to`.
+___
+__Što su sesije i kako ih koristimo?__
+Sesije u PHP-u omogućuju pohranu podataka na serveru za korištenje tijekom više stranica. One se često koriste za pohranu informacija o korisnicima, poput podataka za prijavu ili podataka o košarici za kupnju, dok korisnik pregledava web mjesto. Sesije su korisne jer omogućuju zadržavanje stanja između HTTP zahtjeva, što je korisno za funkcionalnosti koje zahtijevaju praćenje korisničkog stanja.
+
+Sesiju inicijaliziramo pozivanjem:
+`session_start();`
+Svaki put kada želimo dohvatiti ili spremiti podatke u sesiju MORAMO prije pozivati `session_start()`
+
+Podatke iz sesije spremamo:
+`$_SESSION['username'] = 'Marko';`
+
+Podatke iz sesije čitamo:
+`echo $_SESSION['username'];`
+
+Podatke is sesije brišemo:
+`unset($_SESSION['username']);`
 
 
 
-*******************************************************
-			MySQL
-*******************************************************
+*****************
+# MySQL
+
 
 Baza podataka je organizirani skup podataka pohranjenih u računalu na sustavan način
 
