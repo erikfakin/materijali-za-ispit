@@ -1,5 +1,5 @@
 # Sadržaj
-* [Linux](#linux)
+* [Radno okruženje](#radno-okruženje)
 * [HTML](#html)
 * [PHP](#php)
 * [MySQL](#mysql)
@@ -12,8 +12,35 @@
 
 
 ****************
-# Linux
+# Radno okruženje
 
+__Što je Linux?__
+
+Linux je obitelj/grupa operativnih sustava, besplatnih i open source. Tehnički gledano, "Linux" se zapravo odnosi samo na centralni dio operacijskog sustava, poznato kao Kernel Linuxa. Kernel upravlja hardverom i resursima računala.
+Postoje različite distribucije Linux-a poznate kao distros. U tečaju smo koristili Ubutnu 22. Naj popularniji distrosi su:
+- Linux Mint
+- Ubutnu
+- Debian
+- Fedora
+___
+__Što je Git?__
+
+Git je besplatan i open source sistem za verzioniranje izvornog koda (source code) koji omogućava praćenje povijesti promijena nad fileovima. Koristi se za suradnju i verzioniranje projekata. Svako računalo ima lokalnu kopiju repozitorija, a promijene se sinkorniziraju putem servera (Github, Gitbucket...).
+___
+__Git komande:__
+- `git config` -> za konfiguriranje git-a npr username i email
+- `git init` -> za inicijalizaciju repozitorija
+- `git status` -> za pregled svih promijena u working direktoriju za fileove koji smo dodali za praćenje
+- `git add ime-datoteke` ili `git add .` -> za praćenje jedne datoteke ili svih datoteka u working directory
+- `git commit` -> za spremanje jedne verzije projekta u Git history
+- `git clone` -> za kloniranje repozirija
+- `git checkout` -> za mjenjanje aktivnog brancha
+- `git checkout -b` -> za kreiranje brancha
+- `git switch` -> za mjenjanje aktivnog brancha (slicno kao `git checkout`)
+- `git push` -> za pushanje/slanje spremljenih promjena na remote repozitorij (npr. github)
+- `git pull` -> za pullanje/dohvacanje remote repozitorija
+- `git show` -> za pregled svih promjena
+___
 __Linux komande:__
 - pwd -> ispisi trenutni direktorij (Current Working Directory)
 - mkdir -> kreiraj direktorij
@@ -28,7 +55,6 @@ __Editori__: Vi/Vim, Nano, Emacs
 - Vi:
 	- ima 3 mode-a: command, insert, replace mode
 	- :wq! za izaci i spremiti promjene :w(write)q(quit)!(execute)
-
 ___
 __Sto je Apache?__ 
 
@@ -157,7 +183,8 @@ ispisat ce se "<=2" ako je $broj jednak 0, 1 ili 2
 ___
 __Što je PHP?___
 
-PHP (rekurzivni akronim i backronim za „PHP: Hypertext Preprocessor“, prije „Personal Home Page Tools“) je jedan programski jezik koji se orijentira po C i Perl sintaksi, namijenjen prvenstveno programiranju dinamičnih web stranica. PHP je kao slobodni softver distribuiran pod PHP licencnim uvjetima. PHP se ističe širokom podrškom raznih baza podataka i internet protokola kao i raspoloživosti brojnih programerskih knjižnica.
+PHP (rekurzivni akronim za „PHP: Hypertext Preprocessor“) je programski jezik namijenjen prvenstveno programiranju web servera/backend-a ali može se koristiti i kao generalni programski jezik.
+PHP se ističe širokom podrškom raznih baza podataka i internet protokola kao i raspoloživosti brojnih librariesa.
 ___
 __Kako se označava početak PHP skripte?__
 
@@ -169,10 +196,12 @@ __Kako ispisujemo tekst?__
 ___
 __PHP tipovi podataka?__
 
-- cijeli brojevi (engl. integer)
-- realni brojevi (engl. floating point numbers)
-- tekstni podatci (engl. string)
-- logičke varijable, nizovi i objekti
+- integer - cijeli brojevi
+- float - decimalni brojevi
+- string - niz znakova "ovo je string"
+- boolean - true ili false
+- array - niz
+- object - objekti
 ___
 __Kako označavamo komentare?__
 
