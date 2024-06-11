@@ -399,34 +399,106 @@ Podatke is sesije brišemo:
 *****************
 # MySQL
 
+__Što je baza podataka?__
 
-Baza podataka je organizirani skup podataka pohranjenih u računalu na sustavan način
+Baza podataka organizirana je zbirka strukturiranih informacija ili podataka koji se obično pohranjuju elektronički u računalni sustav. 
+___
+__Relacijski model baze podataka__
 
-Relacijski model baze podataka - svaka relacija mora da ima definiran primarni ključ, opcionalno može da posjeduje i strani ključ 
+Relacijski model baze podataka strukturira podatke u tablice koje su međusobno povezane preko zajedničkih atributa, koristeći retke za zapise i stupce za karakteristike podataka. 
+Svaka tablica ima __primarni ključ__ koji jedinstveno identificira svaki redak, dok __strani ključevi__ povezuju tablice i __omogućuju relacije__ između podataka. 
+SQL se koristi za upravljanje i manipulaciju podacima unutar relacijskih baza podataka, osiguravajući integritet i konzistentnost podataka kroz različita ograničenja.
+___
+__Što je entitet?__
+Entitet predstavlja objekt ili stvar koju želimo pohraniti u bazu podataka i o kojoj želimo voditi evidenciju. 
+Entiteti su temelj za kreiranje tablica u relacijskim bazama podataka, gdje svaka tablica predstavlja jedan entitet i njegove atribute.
+___
+__Koje su tri glavne vrste relacija?__
 
-Osnovi element naziva se entitet. 
+__Jedan prema jedan (One to one)__
+Svaki zapis u prvoj tablici povezan s jednim zapisom u drugoj tablici.
+Primjer: Osoba i putovnica.
+- Svaka osoba ima jednu putovnicu.
+- Svaka putovnica je izdana samo jednoj osobi.
 
-relacija - e jedan prema jedan, jedan prema više odnosno više prema jedan te više prema više.
+__Jedan prema više (One to many)__
 
-SQL   - structured query language - strukturni upitni jezik
-      - Jezik visoke razine
+Svaki zapis u prvoj tablici može biti povezan s više zapisa u drugoj tablici.
+Svaki zapis u drugoj tablici može biti povezan samo s jednim zapisom u prvoj tablici.
+Primjer: Profesor i predmeti.
+- Svaki profesor može predavati više predmeta.
+- Svaki predmet je dodijeljen samo jednom profesoru.
 
-mysql -u root -p   - za otboriti mysql klijent u cmd/shell kao user root
+__Više prema više (Many to many)__
 
- SQL jezik sastoji se od ključnih riječi na engleskom koje se mogu podijeliti u nekoliko
-grupa:
-– DCL (engl. Data Control Language) – jezika za kontrolu podataka
-– DML (engl. Data Manipulation Language) – jezik za manipulaciju podacima
-– DDL (engl. Data Definition Language) – jezik za definiranje podataka
-– DQL (engl. Data Query Language) – jezik za izvršavanje upita nad podacima
+Svaki zapis u prvoj tablici može biti povezan s više zapisa u drugoj tablici i obrnuto.
+Implementira se putem treće, međutabulirajuće tablice.
+Primjer: Studenti i predmeti.
+- Svaki student može pohađati više predmeta.
+- Svaki predmet može pohađati više studenata. 
+___
+__Što je SQL?__
 
-Sto je normalizacija, reference, kljucevi, relacije, primarni i unique kljuc
-razlika izmedu unique i primarni: unique moze biti null i ako je null ne treba biti unique, moze viswe redaka biti null
+SQL (Structured Query Language) je standardizirani jezik visoke razine za upravljanje relacijskim bazama podataka, koji se koristi za definiranje, dohvaćanje, ažuriranje i brisanje podataka. 
+Osnovne SQL naredbe uključuju SELECT za dohvaćanje podataka, INSERT za umetanje, UPDATE za ažuriranje i DELETE za brisanje podataka. 
+SQL podržava upravljanje strukturama baze podataka i kontrolu pristupa korisnicima.
+__Kako se otvara mysql klijent u cli-u?__
 
-kompozitni kljuc za pivot table ili intermidiate table
+U terminalu:
+`mysql -u korisnicko_ime -p`
 
-kardinalnost- vrsta relacije 1 ->N, 1->1, N->M
-normalizacija smanjuje redundanciju
+Ako želimo pokrenuti mysql klijent kao `root` onda upišemo:
+`mysql -u root -p`
+___
+__Kako se dijele naredbe u SQL-u?__
+U SQL-u naredbe se dijele na različite kategorije/grupe koje se koriste za upravljanje bazama podataka. Svaka od ovih kategorija ima specifičnu svrhu.
+
+– DCL (Data Control Language)
+	- za kontrolu pristupa podacima u bazi podataka
+	- omogućuju dodjelu i oduzimanje prava korisnicima i grupama korisnika
+	- GRANT, REVOKE
+– DML (Data Manipulation Language)
+	- za manipulaciju podacima unutar baze podataka
+	- INSERT, UPDATE, DELETE
+– DDL (Data Definition Language)
+	- za definiranje i upravljanje strukturom baze podataka
+	- CREATE, ALTER, DROP
+– DQL (Data Query Language)
+	- za dohvaćanje podataka iz baze podataka
+	- SELECT
+___
+__Što je normalizacija?__
+
+Normalizacija je proces organiziranja podataka u relacijske baze podataka kako bi se __smanjila redundancija__ i __poboljšala integritet podataka__. 
+Cilj normalizacije je podijeliti velike tablice na manje, međusobno povezane tablice bez gubitka informacija, čime se minimiziraju duplicirani podaci i osigurava konzistentnost podataka.
+___
+__Što su reference?__
+
+Reference označavaju veze između tablica koje se uspostavljaju putem ključeva. 
+Ključevi koji se koriste za uspostavljanje veza nazivaju se strani ključevi (engl. foreign keys). 
+Ove reference omogućuju povezivanje podataka između različitih tablica, što omogućava složene upite i održavanje integriteta podataka.
+___
+__Što su ključevi?__
+
+Ključevi su atributi ili kombinacije atributa koji jednoznačno identificiraju svaki zapis u tablici. __Primarni ključ (primary key)__ je osnovni identifikator, __strani ključ (foreign key)__ povezuje podatke iz različitih tablica.
+___
+__Što je unique constraint i koja je razlika između unique i primarnog ključa?__
+
+Unique ograničenje u bazi podataka osigurava da svaka vrijednost u određenom stupcu ili skupu stupaca bude jedinstvena, ali ne zahtijeva da bude primarni ključ.
+Primarni ključ definira osnovni identifikator za svaki zapis u tablici, unique ograničenje osigurava da određeni stupac ili skup stupaca u tablici sadrži samo jedinstvene vrijednosti, ali ne zahtijeva da bude primarni ključ.
+Unique constraint dopušta da vrijednost bude NULL (tada više redaka mogu biti NULL), dok primary key ne dopušta NULL vrijednosti.
+___
+__Što je kompozitni ključ?__
+Kompozitni ključ je kombinacija više atributa (stupaca) koji se zajedno koriste kao primarni ključ u tablici baze podataka. Umjesto jednog jedinstvenog atributa koji jednoznačno identificira svaki zapis, kompozitni ključ se sastoji od više atributa koji zajedno osiguravaju jedinstvenost.
+Možemo ih koristiti u trećim tablicama (junction ili intermidiate tables) za spajanje podataka u više na više relaziciji. 
+___
+__Što je kardinalnost?__
+Kardinalnost je koncept koji opisuje brojnost ili vezu između entiteta u bazi podataka. 
+Označava koliko se entiteta iz jedne tablice može povezati s entitetima u drugoj tablici putem određenog odnosa. 
+Postoje tri glavne vrste kardinalnosti:
+- jedan prema jedan: 1->1
+- jedan prema više: 1->N
+- više prema više: N->M
 
 
 
