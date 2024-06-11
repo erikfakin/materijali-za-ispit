@@ -453,17 +453,17 @@ ___
 __Kako se dijele naredbe u SQL-u?__
 U SQL-u naredbe se dijele na različite kategorije/grupe koje se koriste za upravljanje bazama podataka. Svaka od ovih kategorija ima specifičnu svrhu.
 
-– DCL (Data Control Language)
+- DCL (Data Control Language)
 	- za kontrolu pristupa podacima u bazi podataka
 	- omogućuju dodjelu i oduzimanje prava korisnicima i grupama korisnika
 	- GRANT, REVOKE
-– DML (Data Manipulation Language)
+- DML (Data Manipulation Language)
 	- za manipulaciju podacima unutar baze podataka
 	- INSERT, UPDATE, DELETE
-– DDL (Data Definition Language)
+- DDL (Data Definition Language)
 	- za definiranje i upravljanje strukturom baze podataka
 	- CREATE, ALTER, DROP
-– DQL (Data Query Language)
+- DQL (Data Query Language)
 	- za dohvaćanje podataka iz baze podataka
 	- SELECT
 ___
