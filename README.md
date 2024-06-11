@@ -3,6 +3,8 @@
 * [HTML](#html)
 * [PHP](#php)
 * [MySQL](#mysql)
+* [Praktični dio](#prakticni)
+
 
 
 
