@@ -7,7 +7,7 @@
 
 
 ## Stream "Pripreme za završni ispit":
-* [Link](https://predavacialgebra-my.sharepoint.com/personal/algebra_nastava_predavaci_algebra_hr/_layouts/15/stream.aspx?id=%2Fpersonal%2Falgebra%5Fnastava%5Fpredavaci%5Falgebra%5Fhr%2FDocuments%2FRecordings%2FPripreme%20za%20zavr%C5%A1ni%20ispit%20BEDEV%2026%2E03%2E2024%2E%2D20240326%5F173510%2DSnimka%20sastanka%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eb4f6ea55%2D0f24%2D40f8%2Db614%2D237a1d331270)
+* [Link](https://shorturl.at/nuzP1)
 
 
 
